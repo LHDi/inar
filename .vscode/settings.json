@@ -1,0 +1,11 @@
+{
+    "liveServer.settings.port": 3000,
+    "liveServer.settings.root": "/",
+    "liveServer.settings.CustomBrowser": "chrome",
+    "liveServer.settings.https": {
+      "enable": true,
+      "cert": "/home/lhd/Desktop/inar/https/localhost.pem",
+      "key": "/home/lhd/Desktop/inar/https/localhost.key",
+      "passphrase": "0000"
+    }
+  }

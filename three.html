@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>My first three.js app</title>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+
+    <script>
+      const scene = new THREE.Scene(); // creating a scene
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      ); // adding a camera to the scene
+      const color = 0xffffff;
+      const intensity = 1;
+      const light = new THREE.DirectionalLight(color, intensity);
+      light.position.set(5, 0, 5);
+      light.target.position.set(0, 0, 0);
+      scene.add(light);
+      scene.background = new THREE.Color("skyblue"); // Set the background color
+      const renderer = new THREE.WebGLRenderer(); // initiating the renderer
+      renderer.setSize(window.innerWidth, window.innerHeight); // setting the size
+      document.body.appendChild(renderer.domElement); // adding the scene to the html page.
+
+      var loader = new THREE.GLTFLoader();
+
+      loader.load(
+        "./garfield/scene.gltf",
+        function (gltf) {
+          var model = gltf.scene;
+          model.scale.set(0.01, 0.01, 0.01);
+          scene.add(model);
+        },
+        undefined,
+        function (error) {
+          console.error(error);
+        }
+      );
+
+      camera.position.set(0, 0, 5); // moving the camera so we can see the box.
+      function animate() {
+        requestAnimationFrame(animate);
+        renderer.render(scene, camera);
+      }
+      animate();
+    </script>
+  </body>
+</html>

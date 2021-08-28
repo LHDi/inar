@@ -1,0 +1,54 @@
+<html>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- we import arjs version without NFT but with marker + location based support -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+  <link rel="stylesheet" href="./css/style.css" />
+  <body style="margin: 0px; overflow: hidden">
+    <div id="navigation-bar">
+      <a href="/">Home</a>
+      <a href="toA.html">To A</a>
+      <a href="toB.html">To B</a>
+      <a href="toC.html">To C</a>
+      <a href="toD.html">To D</a>
+    </div>
+    <a-scene embedded arjs id="scene">
+      <a-assets>
+        <a-asset-item
+          id="optimerBoldFont"
+          src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"
+        ></a-asset-item>
+      </a-assets>
+      <a-marker type="pattern" url="markers/A.patt" smooth>
+        <a-entity
+          rotation="0 180 0"
+          scale="0.2 0.2 0.2"
+          gltf-model="models/arrow/scene.gltf"
+        ></a-entity>
+      </a-marker>
+      <a-marker type="pattern" url="markers/B.patt" smooth>
+        <a-entity
+          rotation="0 -90 0"
+          scale="0.2 0.2 0.2"
+          gltf-model="models/arrow/scene.gltf"
+        ></a-entity>
+      </a-marker>
+      <a-marker type="pattern" url="markers/C.patt" smooth>
+        <a-entity
+          rotation="0 -90 0"
+          scale="0.2 0.2 0.2"
+          gltf-model="models/arrow/scene.gltf"
+        ></a-entity>
+      </a-marker>
+      <a-marker type="pattern" url="markers/D.patt" smooth>
+        <a-entity
+          text-geometry="value: D"
+          rotation="-90 0 0"
+          position="-.25 0 0"
+        ></a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+    <!-- <script src="./js/index.js" /> -->
+  </body>
+</html>

@@ -1,0 +1,28 @@
+#navigation-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background-color: #00eeff55;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  z-index: 1000;
+}
+
+#navigation-bar > a {
+  padding: 10px 15px;
+  margin: 5px;
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  font-family: Sans-Serif;
+  background-color: #17312dcb;
+}
+
+#navigation-bar > a:active {
+  background-color: white;
+  color: black;
+}
